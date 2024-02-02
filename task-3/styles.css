@@ -21,7 +21,14 @@ body {
 }
 
 .sidebar .logo img {
-  width: 130px;
+  width: 100px;
+}
+
+.navigation {
+  background-color: #181818;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
 .sidebar .navigation ul {
