@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.mainContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageContainer {
+  height: 1px;
+  width: 500px;
+  transition: height 1s ease-in-out;
+  opacity: 0.5;
+}
+.hoverArea:hover .imageContainer {
+  height: 300px;
+}
+.hoverArea {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.overlayText {
+  position: absolute;
+}
+.listItem {
+  list-style: none;
+}
+.hiddenEffect {
+  display: none;
+  height: 50px;
+}
+.hiddenEffect2 {
+  display: none;
+  height: 50px;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexCenter:hover .hiddenEffect {
+  transform: translateX(-10px);
+  display: block;
+  animation: slideIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-timing-function: 1s ease-in-out;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-10px);
+    opacity: 1;
+  }
+}
+.flexCenter:hover .hiddenEffect2 {
+  transform: translateX(10px);
+  display: block;
+  animation: slideIn2;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+  animation-timing-function: 1s ease-in-out;
+}
+@keyframes slideIn2 {
+  0% {
+    transform: translateX(50px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(10px);
+    opacity: 1;
+  }
+}
