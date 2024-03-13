@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meme Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Meme Generator</a>
+    </nav>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>
+          <i class="fa fa-2x fa-paint-brush" aria-hidden="true"></i> Create your
+          awesome Meme now!
+        </h1>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-md-5">
+          <canvas id="meme" class="img-thumbnail img-fluid">
+            Unfortunately your browser does not support canvas.
+          </canvas>
+
+          <a
+            href="#"
+            class="btn btn-primary btn-block"
+            id="download_meme"
+            style="margin-top: 10px"
+          >
+            <i class="fa fa-download" aria-hidden="true"></i> Download
+          </a>
+
+          <img id="start-image" src="image.jpg" alt="" />
+        </div>
+
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <span class="input-group-addon">Image:</span>
+                <input
+                  type="file"
+                  accept="images/*"
+                  multiple="false"
+                  class="form-control"
+                  id="imgInp"
+                />
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <label class="control-label" for="text_top">Text 1:</label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              value="Have you expected this to be"
+              id="text_top"
+            />
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="control-label col-md-4" for="text_top_offset"
+                >Offset from top:</label
+              >
+              <div class="col-md-6">
+                <input
+                  style="width: 100%"
+                  id="text_top_offset"
+                  type="range"
+                  min="0"
+                  max="500"
+                  value="50"
+                />
+              </div>
+              <div class="col-md-2 setting-value">
+                <span id="text_top_offset__val">50</span>px
+              </div>
+            </div>
+          </div>
+
+          <p>&nbsp;</p>
+
+          <label class="control-label" for="text_bottom">Text 2:</label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              value="funny?"
+              id="text_bottom"
+            />
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <label class="control-label col-md-4" for="text_bottom_offset"
+                >Offset from Top:</label
+              >
+              <div class="col-md-6">
+                <input
+                  style="width: 100%"
+                  id="text_bottom_offset"
+                  type="range"
+                  min="0"
+                  max="500"
+                  value="450"
+                />
+              </div>
+              <div class="col-md-2 setting-value">
+                <span id="text_bottom_offset__val">450</span>px
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <p>&nbsp;</p>
+
+          <div class="card">
+            <div class="card-header">
+              <i class="fa fa-cogs" aria-hidden="true"></i> &nbsp; More options
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="control-label col-md-3" for="canvas_size"
+                        >Meme size:</label
+                      >
+                      <div class="col-md-7">
+                        <input
+                          style="width: 100%"
+                          id="canvas_size"
+                          type="range"
+                          min="0"
+                          max="1000"
+                          value="500"
+                        />
+                      </div>
+                      <div class="col-md-2 setting-value">
+                        <span id="canvas_size__val">500</span>px
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="control-label col-md-3" for="text_font_size"
+                        >Font size:</label
+                      >
+                      <div class="col-md-7">
+                        <input
+                          style="width: 100%"
+                          id="text_font_size"
+                          type="range"
+                          min="0"
+                          max="72"
+                          value="28"
+                        />
+                      </div>
+                      <div class="col-md-2 setting-value">
+                        <span id="text_font_size__val">28</span>pt
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <label
+                        class="control-label col-md-3"
+                        for="text_line_height"
+                        >Line height:</label
+                      >
+                      <div class="col-md-7">
+                        <input
+                          style="width: 100%"
+                          id="text_line_height"
+                          type="range"
+                          min="0"
+                          max="100"
+                          value="15"
+                        />
+                      </div>
+                      <div class="col-md-2 setting-value">
+                        <span id="text_line_height__val">15</span>pt
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <label
+                        class="control-label col-md-3"
+                        for="text_stroke_width"
+                        >Stroke width:</label
+                      >
+                      <div class="col-md-7">
+                        <input
+                          style="width: 100%"
+                          id="text_stroke_width"
+                          type="range"
+                          min="0"
+                          max="20"
+                          value="4"
+                        />
+                      </div>
+                      <div class="col-md-2 setting-value">
+                        <span id="text_stroke_width__val">4</span>pt
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+    ></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
